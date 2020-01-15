@@ -4,8 +4,8 @@
 {% block page_title %}Dashboard{% endblock %}
 
 {% block content %}
-<h3>Index</h3>
 <div id="canvas-holder" style="width:40%">
+    <h4>Widget Colors</h4>
     <canvas id="chart-area"></canvas>
 </div>
 {% endblock %}
@@ -18,7 +18,7 @@
 <script src="{% static 'js/chart.js' %}"></script>
 {{widget_data|json_script:"widget-data"}}
 <script>
-chartColors = {
+let chartColors = {
     red: 'rgb(255, 99, 132)',
     orange: 'rgb(255, 159, 64)',
     yellow: 'rgb(255, 205, 86)',
@@ -27,27 +27,47 @@ chartColors = {
     purple: 'rgb(153, 102, 255)',
     grey: 'rgb(201, 203, 207)'
 };
+
+function getWidgetStats() {
+    var stats = {};
+    widgetData = JSON.parse(document.getElementById('widget-data').textContent);
+    let widget;
+    for (var i in widgetData) {
+        widget = widgetData[i];
+        if (widget.color in stats) {
+            stats[widget.color] += 1;
+        } else {
+            stats[widget.color] = 1;
+        }
+    }
+    return stats;
+}
+
+function collectValues(data) {
+    let result = [];
+    for (var i in data) {
+        result.push(data[i]);
+    }
+    return result;
+}
+
+let widgetData;
+let stats = getWidgetStats();
+let statValues = collectValues(stats);
+let statLabels = Object.keys(stats);
 let config = {
     type: 'pie',
     data: {
         datasets: [{
-            data: [
-                2,
-                3,
-                4,
-            ],
+            data: statValues,
             backgroundColor: [
+                chartColors.red,
                 chartColors.black,
                 chartColors.blue,
-                chartColors.red,
             ],
             label: 'Widgets'
         }],
-        labels: [
-            'Black',
-            'Blue',
-            'Red'
-        ]
+        labels: statLabels
     },
     options: {
         responsive: true
@@ -55,6 +75,7 @@ let config = {
 };
 
 window.onload = function() {
+    
     var ctx = document.getElementById("chart-area").getContext("2d");
     window.myPieChart = new Chart(ctx, config);
 };
