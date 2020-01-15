@@ -75,3 +75,6 @@ class Widget(models.Model):
     model_number = models.CharField(max_length=64)
     base_price = models.FloatField()
     color = models.CharField(max_length=64, choices=color_choices)
+
+    def __str__(self):
+        return self.name
