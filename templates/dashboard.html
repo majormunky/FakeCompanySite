@@ -45,7 +45,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link{% if '/dashboard/customers/' in request.path %} active{% endif %}" href="/dashboard/customers/">
                 <span data-feather="users"></span>
                 Customers
             </a>

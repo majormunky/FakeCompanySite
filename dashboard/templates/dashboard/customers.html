@@ -1,0 +1,32 @@
+{% extends "dashboard.html" %}
+
+{% block page_title %}Customers{% endblock %}
+
+{% block content %}
+    {% if customer_list %}
+        <table class="table">
+            <tr>
+                <th>&nbsp;</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+            {% for customer in customer_list %}
+                <tr>
+                    <td><a href="#">View</a></td>
+                    <td>{{customer.first_name}}</td>
+                    <td>{{customer.last_name}}</td>
+                    <td>{{customer.email}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
+
+{% block page_styles %}
+
+{% endblock %}
+
+{% block page_scripts %}
+
+{% endblock %}
