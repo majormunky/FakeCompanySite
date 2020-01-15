@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from core import models
 
 
 def index(request):
@@ -10,4 +11,5 @@ def orders(request):
 
 
 def products(request):
-    return render(request, "dashboard/products.html", {})
+    product_list = models.Widget.objects.all()
+    return render(request, "dashboard/products.html", {"widget_list": product_list})
