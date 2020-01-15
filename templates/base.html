@@ -40,13 +40,13 @@
                           </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link{% if request.path == '/dashboard/orders/' %} active{% endif %}" href="/dashboard/orders/">
+                        <a class="nav-link{% if '/dashboard/orders/' in request.path %} active{% endif %}" href="/dashboard/orders/">
                             <span data-feather="file"></span>
                             Orders
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link{% if request.path == '/dashboard/widgets/' %} active{% endif %}" href="/dashboard/widgets/">
+                        <a class="nav-link{% if '/dashboard/widgets/' in request.path %} active{% endif %}" href="/dashboard/widgets/">
                             <span data-feather="shopping-cart"></span>
                             Widgets
                         </a>
