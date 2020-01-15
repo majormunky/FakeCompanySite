@@ -5,6 +5,6 @@ from dashboard import views
 urlpatterns = [
     path("", views.index),
     path("orders/", views.orders),
-    path("products/", views.products),
+    path("widgets/", views.widgets),
     path("widgets/<int:pk>/", views.widget_detail),
 ]
