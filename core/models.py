@@ -69,12 +69,8 @@ class CoreUser(AbstractBaseUser, PermissionsMixin):
         return self.is_admin
 
 
-def Widget(models.Model):
-    color_choices = (
-        ("black", "Black"),
-        ("red", "Red"),
-        ("blue", "Blue")
-    )
+class Widget(models.Model):
+    color_choices = (("black", "Black"), ("red", "Red"), ("blue", "Blue"))
     name = models.CharField(max_length=64)
     model_number = models.CharField(max_length=64)
     base_price = models.FloatField()
