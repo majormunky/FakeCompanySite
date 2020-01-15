@@ -130,3 +130,5 @@ dmypy.json
 
 # Django
 migrations/
+
+company_project/local_settings.py
