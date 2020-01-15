@@ -7,7 +7,24 @@
 {% endblock %}
 
 {% block content %}
-<h3>Index</h3>
+<table class="details-table">
+    <tr>
+        <td>Name:</td>
+        <td>{{widget_data.name}}</td>
+    </tr>
+    <tr>
+        <td>Model Number:</td>
+        <td>{{widget_data.model_number}}</td>
+    </tr>
+    <tr>
+        <td>Base Price:</td>
+        <td>{{widget_data.base_price}}</td>
+    </tr>
+    <tr>
+        <td>Color:</td>
+        <td>{{widget_data.get_color_display}}</td>
+    </tr>
+</table>
 {% endblock %}
 
 {% block page_styles %}
