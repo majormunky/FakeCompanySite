@@ -13,7 +13,7 @@
             </tr>
             {% for customer in customer_list %}
                 <tr>
-                    <td><a href="#">View</a></td>
+                    <td><a href="/dashboard/customers/{{customer.id}}/">View</a></td>
                     <td>{{customer.first_name}}</td>
                     <td>{{customer.last_name}}</td>
                     <td>{{customer.email}}</td>
