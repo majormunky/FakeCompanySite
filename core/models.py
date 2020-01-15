@@ -1,5 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.contrib.auth.models import (
+    AbstractBaseUser,
+    BaseUserManager,
+    PermissionsMixin,
+)
 
 
 class CoreUserManager(BaseUserManager):
@@ -43,7 +47,6 @@ class CoreUser(AbstractBaseUser, PermissionsMixin):
     EMAIL_FIELD = "email"
     REQUIRED_FIELDS = ["first_name", "last_name"]
 
-
     def __str__(self):
         return self.email
 
@@ -64,3 +67,15 @@ class CoreUser(AbstractBaseUser, PermissionsMixin):
     def is_staff(self):
         # Simplest possible answer: All admins are staff
         return self.is_admin
+
+
+def Widget(models.Model):
+    color_choices = (
+        ("black", "Black"),
+        ("red", "Red"),
+        ("blue", "Blue")
+    )
+    name = models.CharField(max_length=64)
+    model_number = models.CharField(max_length=64)
+    base_price = models.FloatField()
+    color = models.CharField(max_length=64, choices=color_choices)
