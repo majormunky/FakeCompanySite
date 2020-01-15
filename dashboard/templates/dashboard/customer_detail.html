@@ -1,0 +1,28 @@
+{% extends "dashboard.html" %}
+
+{% block page_title %}Customer Detail{% endblock %}
+
+{% block content %}
+<table class="details-table">
+    <tr>
+        <td>First Name:</td>
+        <td>{{customer_data.first_name}}</td>
+    </tr>
+    <tr>
+        <td>Last Name:</td>
+        <td>{{customer_data.last_name}}</td>
+    </tr>
+    <tr>
+        <td>Email Address:</td>
+        <td>{{customer_data.email}}</td>
+    </tr>
+</table>
+{% endblock %}
+
+{% block page_styles %}
+
+{% endblock %}
+
+{% block page_scripts %}
+
+{% endblock %}
