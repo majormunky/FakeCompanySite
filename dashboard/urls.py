@@ -3,6 +3,7 @@ from dashboard import views
 
 
 urlpatterns = [
-	path('', views.index),
-	path('orders/', views.orders),
+    path("", views.index),
+    path("orders/", views.orders),
+    path("products/", views.products),
 ]
