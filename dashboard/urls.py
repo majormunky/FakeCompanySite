@@ -4,4 +4,5 @@ from dashboard import views
 
 urlpatterns = [
 	path('', views.index),
+	path('orders/', views.orders),
 ]
