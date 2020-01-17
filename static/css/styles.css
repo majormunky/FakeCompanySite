@@ -67,14 +67,9 @@ body {
  */
 
 [role="main"] {
-  padding-top: 133px; /* Space for fixed navbar */
+  padding-top: 75px; /* Space for fixed navbar */
 }
 
-@media (min-width: 768px) {
-  [role="main"] {
-    padding-top: 48px; /* Space for fixed navbar */
-  }
-}
 
 /*
  * Navbar
@@ -110,4 +105,3 @@ body {
   text-align: right;
   padding-right: 0.5em;
 }
-
